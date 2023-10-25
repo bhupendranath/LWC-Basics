@@ -1,0 +1,19 @@
+/*
+.wrapper{
+    width: 100%;
+    background-color: grey;
+}
+.skills{
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}*/  /* we are moving this redundant class to common CSS library: sharedCSSLibrary*/
+
+/*here we are importing sharedCSSLibrary file*/
+@import 'c/sharedCSSLibrary';
+
+.css{
+    width: 80%;
+    background-color: blue;
+}
