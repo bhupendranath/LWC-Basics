@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Model:C2P Communication [Parent]">
+        <div class="slds-m-around_medium" onclose={closeHandler}>
+            <lightning-button label="Show Modal" onclick={clickHandler}></lightning-button>
+            <h1>{msg}</h1>
+            <template if:true={showModal}>
+                <!-- on child, custom event name is close.So here we will append with on: onclose -->
+                <!-- <c-c2p-child-model-component onclose={closeHandler}></c-c2p-child-model-component> -->
+                <c-c2p-child-model-component></c-c2p-child-model-component>
+            </template>
+        </div>
+    </lightning-card>
+</template>
