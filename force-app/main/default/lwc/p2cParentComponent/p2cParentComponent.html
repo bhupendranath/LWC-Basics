@@ -1,0 +1,37 @@
+<template>
+    <!-- Example of simple data -->
+
+    <!-- By declaring this Parent message attribute as public in a child component (.js) we can use it inside Child template-->
+    <!-- Also here cardHeading(camel case defined in child JS file as public) >> card-heading (we are following cebap case)  -->
+    <!-- for boolean attribute bydefault it will be : TRUE if it is undefine >> is-valid -->
+    <c-p2c-child-alert-component message="Hurray!! I got the Data"
+        card-heading="Alert:P2C (Parent-To-Child) primitive data Communication" number=99
+        is-valid=false></c-p2c-child-alert-component>
+
+    <!-- Component should not touch so we can added margin with bottom -->
+    <div class="slds-m-bottom_medium"></div>
+
+    <!-- Example of complex(non-preimitive) data -->
+    <c-p2c-child-carousel-component carousel-details={carouselData}></c-p2c-child-carousel-component>
+
+    <!-- add bottom margin -->
+    <div class="slds-m-bottom_medium"></div>
+
+    <!-- Example of data passing on Action-->
+    <!-- Passign data to child by clicking some button on Parent component -->
+    <lightning-card title="ProgressBar:P2C communication on Action">
+        <div class="slds-m-around_medium">
+            <lightning-input type="number" label="Enter percentage" onkeyup={changeHandler}
+                value={percentage}></lightning-input>
+            <c-p2c-child-progress-component progress-value={percentage}></c-p2c-child-progress-component>
+        </div>
+    </lightning-card>
+
+    <!-- add bottom margin -->
+    <div class="slds-m-bottom_medium"></div>
+
+    <!-- Example of Calling Child method from Parent-->
+    <lightning-button variant="brand" label="Reset Slider" onclick={handleClick}></lightning-button>
+    <c-p2c-child-slider-component></c-p2c-child-slider-component>
+
+</template>
