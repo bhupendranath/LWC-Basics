@@ -1,0 +1,18 @@
+h1{
+    font-size: 30px;
+    color: red;
+}
+/*
+c-css-behavior-child{
+    display: block;
+    background-color: green;
+    color: white;
+}
+*/
+/*
+Adding Style to Slot element, if we add style from child then it won't work
+*/
+p{
+    font-size: 20px;
+    color: yellow;
+}
