@@ -1,0 +1,25 @@
+import { LightningElement, wire } from 'lwc';
+import SAMPLEMC from "@salesforce/messageChannel/SampleMessageChannel__c"
+import {MessageContext, publish} from 'lightning/messageService'
+export default class LmsComponentA extends LightningElement {
+    
+    inputValue
+
+    @wire(MessageContext)//It return an Object that tells me which all component is using LMS 
+    //and we will store it below context property
+    context
+
+    inputHandler(event){
+        this.inputValue = event.target.value
+    }
+
+    publishMessage(){
+        const message={
+            lmsData:{
+                value:this.inputValue
+            }
+        }
+        //publish(messageContext, messageChannel, message)
+        publish(this.context, SAMPLEMC, message)
+    }
+}

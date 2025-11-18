@@ -1,0 +1,33 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+<!--Aura Attribute: It used to define Variable that can store the data-->
+<!--messageValue: store the value that we type in input field-->
+<aura:attribute name="messageValue" type="String" />
+
+<aura:attribute name="messageRecieved" type="String" />
+    <lightning:messageChannel 
+    type="SampleMessageChannel__c" 
+    aura:id="SampleMessageChannel"
+    onMessage="{!c.handleMessage}"
+    scope="APPLICATION"/>
+
+    <lightning:card title="LMS Aura Component Listening to Message Channel" >
+        <div class="slds-p-around_medium">
+            <label>Enter Publish Message</label>
+            <input type="text" 
+             id="messageInput"
+             name="messageInput"
+             class="slds-input"
+             value="{!v.messageValue}"
+             onkeyup="{!c.inputHandler}" />
+        </div>
+
+        <div class="slds-p-around_medium">
+            <lightning:button onclick="{!c.publishMessage}">Publish</lightning:button>
+        </div>
+
+        <div class="slds-p-around_medium">
+            <h1><Strong>Message Recieved</Strong></h1>
+            <lightning:formattedText value="{!v.messageRecieved}"/>
+        </div>
+    </lightning:card>
+</aura:component>
